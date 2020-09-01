@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src='Icon.js'></script>
+    <script src='app.js'></script>
+</head>
+<body>
+    <form >
+        <div class="form-row align-items-center">
+          <div class="col-auto my-1">
+            <label class="mr-sm-2" for="howManySymbols">How many symbols?</label>
+            <select class="custom-select mr-sm-2" id="howManySymbols", onchange="updateSymbols()">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">Five</option>
+              <option value="6">Six</option>
+              <option value="7">Seven</option>
+              <option value="8">Eight</option>
+              <option value="9">Nine</option>
+            </select>
+          </div>
+          <div class="col-auto my-1">
+            <button type="button" class="btn btn-primary" onclick="runPuzzle()">Submit</button>
+          </div>
+          <div class="col-auto my-2">
+            <button type="reset" class="btn btn-danger" onclick="hideSymbols()">Reset</button>
+          </div>
+        </div>
+        <fieldset class="form-group symbol1">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 1</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                  
+                  <label class="form-check-label" >
+                      <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                  
+                  <label class="form-check-label" >
+                    <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol2 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 2</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol3 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 3</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol4 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 4</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol5 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 5</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol6 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 6</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol7 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 7</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol8 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 8</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group symbol9 invisible">
+            <div class="row">
+              <legend class="col-form-label col-sm-2 pt-0">Symbol 9</legend>
+              <div class="col-sm-10">
+                <div class="form-check flowerCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="flowerCheck" value="true" >
+                    Is it a flower?
+                  </label>
+                </div>
+                <div class="form-check circleCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="circleCheck" value="true">
+                    Does it have a Circle?
+                  </label>
+                </div>
+                <div class="form-check shadedCheck">
+                    <label class="form-check-label" >
+                        <input class="form-check-input" type="checkbox" name="gridRadios" id="shadedCheck" value="true">
+                    Is it Shaded?
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+      </form>
+    
+</body>
+</html>
