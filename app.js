@@ -12,8 +12,10 @@ const symbols = [
 
 function showSymbols(numberOfSymbols) {
     this.hideSymbols();
+    document.querySelectorAll(".meev").forEach(el => el.remove())
     for (let i = 0; i < numberOfSymbols; i++) {
         document.getElementsByClassName(symbols[i])[0].classList.remove("invisible");
+        
     }
 }
 
@@ -133,7 +135,15 @@ function calculate(puzzle) {
 }
 
 function printOddOneOut(number, icon) {
-    document.getElementsByClassName(symbols[number])[0].classList.add("bg-success")
+    let img = document.createElement("img");
+    let wrapper = document.createElement("div");
+    img.src = "media/meev.png";
+    wrapper.classList.add("col-sm-3");
+    wrapper.classList.add("meev");
+    wrapper.appendChild(img);
+
+    document.getElementsByClassName(symbols[number])[0].classList.add("bg-success");
+    document.getElementsByClassName(symbols[number])[0].childNodes[1].appendChild(wrapper);
     console.log("Odd one out is :" + (number + 1));
     console.log(icon.print())
 }
